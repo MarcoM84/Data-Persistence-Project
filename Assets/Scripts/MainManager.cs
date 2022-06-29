@@ -107,7 +107,7 @@ public class MainManager : MonoBehaviour
 
             DataManager.Instance.playerName1 = DataManager.Instance.currentPlayerName;
             DataManager.Instance.bestScore1 = m_Points;
-            DataManager.Instance.SaveScore();
+            DataManager.Instance.SaveData();
             
             return;
         }
@@ -118,7 +118,7 @@ public class MainManager : MonoBehaviour
 
             DataManager.Instance.playerName2 = DataManager.Instance.currentPlayerName;
             DataManager.Instance.bestScore2 = m_Points;
-            DataManager.Instance.SaveScore();
+            DataManager.Instance.SaveData();
 
             return;
         }
@@ -126,7 +126,7 @@ public class MainManager : MonoBehaviour
         {
             DataManager.Instance.playerName3 = DataManager.Instance.currentPlayerName;
             DataManager.Instance.bestScore3 = m_Points;
-            DataManager.Instance.SaveScore();
+            DataManager.Instance.SaveData();
         }
 
     }

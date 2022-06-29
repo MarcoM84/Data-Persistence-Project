@@ -29,6 +29,14 @@ public class SettingsMenu : MonoBehaviour
     }
     public void SaveSettings()
     {
-        DataManager.Instance.SaveScore();
+        DataManager.Instance.SaveData();
+    }
+    public void DefaultSettings()
+    {
+        DataManager.Instance.paddleSpeed = 2.0f;
+        DataManager.Instance.maxBallSpeed = 3.0f;
+        ballSpeed.value = DataManager.Instance.maxBallSpeed;
+        paddleSpeed.value = DataManager.Instance.paddleSpeed;
+        DataManager.Instance.SaveData();
     }
 }

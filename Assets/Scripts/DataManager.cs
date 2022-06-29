@@ -36,7 +36,7 @@ public class DataManager : MonoBehaviour
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
-            LoadScore();
+            LoadData();
         }
         else
         {
@@ -48,13 +48,13 @@ public class DataManager : MonoBehaviour
             bestScore2 = 0;
             playerName3 = "CCC";
             bestScore3 = 0;
-            SaveScore();
+            SaveData();
         }
     }
 
 
     [System.Serializable]
-    class SaveData
+    class SaveDataClass
     {
         public float maxBallSpeed;
         public float paddleSpeed;
@@ -67,9 +67,9 @@ public class DataManager : MonoBehaviour
         public int bestScore3;
     }
 
-    public void SaveScore()
+    public void SaveData()
     {
-        SaveData data = new SaveData();
+        SaveDataClass data = new SaveDataClass();
         data.maxBallSpeed = maxBallSpeed;
         data.paddleSpeed = paddleSpeed;
 
@@ -85,13 +85,13 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadScore()
+    public void LoadData()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            SaveDataClass data = JsonUtility.FromJson<SaveDataClass>(json);
             maxBallSpeed = data.maxBallSpeed;
             paddleSpeed = data.paddleSpeed;
 
