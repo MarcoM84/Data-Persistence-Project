@@ -6,6 +6,9 @@ using System.IO;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
+    public float maxBallSpeed = 3.0f;
+    public float paddleSpeed = 2.0f;
+
     public string currentPlayerName = "NoName";
     public int currentScore = 0;
 
@@ -29,6 +32,7 @@ public class DataManager : MonoBehaviour
 
     private void Start()
     {
+              
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
@@ -36,6 +40,8 @@ public class DataManager : MonoBehaviour
         }
         else
         {
+            maxBallSpeed = 3.0f;
+            paddleSpeed = 2.0f;
             playerName1 = "AAA";
             bestScore1 = 0;
             playerName2 = "BBB";
@@ -50,6 +56,9 @@ public class DataManager : MonoBehaviour
     [System.Serializable]
     class SaveData
     {
+        public float maxBallSpeed;
+        public float paddleSpeed;
+
         public string playerName1;
         public int bestScore1;
         public string playerName2;
@@ -61,6 +70,9 @@ public class DataManager : MonoBehaviour
     public void SaveScore()
     {
         SaveData data = new SaveData();
+        data.maxBallSpeed = maxBallSpeed;
+        data.paddleSpeed = paddleSpeed;
+
         data.playerName1 = playerName1;
         data.bestScore1 = bestScore1;
         data.playerName2 = playerName2;
@@ -80,7 +92,9 @@ public class DataManager : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
-            
+            maxBallSpeed = data.maxBallSpeed;
+            paddleSpeed = data.paddleSpeed;
+
             playerName1 = data.playerName1;
             bestScore1 = data.bestScore1;
             playerName2 = data.playerName2;
