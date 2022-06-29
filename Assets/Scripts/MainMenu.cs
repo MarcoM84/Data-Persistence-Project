@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartClicked()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void SettingsClicked()
     {

@@ -27,6 +27,6 @@ public class BestScoresMenu : MonoBehaviour
 
     public void MenuClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }

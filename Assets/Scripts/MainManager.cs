@@ -91,7 +91,7 @@ public class MainManager : MonoBehaviour
 
     public void MenuClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     void CheckBestScores()
     {

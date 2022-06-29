@@ -17,7 +17,7 @@ public class SettingsMenu : MonoBehaviour
     }
     public void MenuClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void SetBallSpeed()
     {
