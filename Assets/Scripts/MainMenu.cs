@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         // get the score from data
-        bestScore.text = DataManager.Instance.playerName + " " + DataManager.Instance.bestScore;
+        bestScore.text = "Best: " + DataManager.Instance.playerName1 + " " + DataManager.Instance.bestScore1;
     }
     public void SetPlayerName()
     {

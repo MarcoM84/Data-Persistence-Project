@@ -24,7 +24,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         // load best score and playername
-        bestScoreText.text = "Best: " + DataManager.Instance.playerName + " " + DataManager.Instance.bestScore;
+        bestScoreText.text = "Best: " + DataManager.Instance.playerName1 + " " + DataManager.Instance.bestScore1;
         ScoreText.text = $"Score : {DataManager.Instance.currentPlayerName + " " + m_Points}";
 
         const float step = 0.6f;
@@ -76,20 +76,59 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         // check best scores and save playername and score if needed
+        CheckBestScores();
 
-        if (m_Points > DataManager.Instance.bestScore)
-        {
-            bestScoreText.text = $"Score : {DataManager.Instance.currentPlayerName + " " + m_Points}";
-            DataManager.Instance.playerName = DataManager.Instance.currentPlayerName;
-            DataManager.Instance.bestScore = m_Points;
-            DataManager.Instance.SaveScore();
-        }
+        //if (m_Points > DataManager.Instance.bestScore1) // works for single highscore
+        //{
+        //    bestScoreText.text = $"Score : {DataManager.Instance.currentPlayerName + " " + m_Points}";
+        //    DataManager.Instance.playerName1 = DataManager.Instance.currentPlayerName;
+        //    DataManager.Instance.bestScore1 = m_Points;
+        //    DataManager.Instance.SaveScore();
+        //}
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
     public void MenuClicked()
     {
         SceneManager.LoadScene(1);
+    }
+    void CheckBestScores()
+    {
+        if (m_Points > DataManager.Instance.bestScore1) // new best score
+        {
+            bestScoreText.text = $"Score : {DataManager.Instance.currentPlayerName + " " + m_Points}";
+
+            DataManager.Instance.playerName3 = DataManager.Instance.playerName2;
+            DataManager.Instance.bestScore3 = DataManager.Instance.bestScore2;
+
+            DataManager.Instance.playerName2 = DataManager.Instance.playerName1;
+            DataManager.Instance.bestScore2 = DataManager.Instance.bestScore1;
+
+            DataManager.Instance.playerName1 = DataManager.Instance.currentPlayerName;
+            DataManager.Instance.bestScore1 = m_Points;
+            DataManager.Instance.SaveScore();
+            
+            return;
+        }
+        else if (m_Points > DataManager.Instance.bestScore2) // new second best score
+        {
+            DataManager.Instance.playerName3 = DataManager.Instance.playerName2;
+            DataManager.Instance.bestScore3 = DataManager.Instance.bestScore2;
+
+            DataManager.Instance.playerName2 = DataManager.Instance.currentPlayerName;
+            DataManager.Instance.bestScore2 = m_Points;
+            DataManager.Instance.SaveScore();
+
+            return;
+        }
+        else if (m_Points > DataManager.Instance.bestScore3) // new tirth best score
+        {
+            DataManager.Instance.playerName3 = DataManager.Instance.currentPlayerName;
+            DataManager.Instance.bestScore3 = m_Points;
+            DataManager.Instance.SaveScore();
+        }
+
     }
 
 }

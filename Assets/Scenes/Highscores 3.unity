@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HIGHSCORES:'
+  m_text: 'TOP 3 SCORES:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -611,8 +611,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1033,6 +1033,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name1: {fileID: 1438503958}
   score1: {fileID: 1380491098}
+  name2: {fileID: 194518617}
+  score2: {fileID: 1782244876}
+  name3: {fileID: 1533772600}
+  score3: {fileID: 1820766695}
 --- !u!1 &1380491096
 GameObject:
   m_ObjectHideFlags: 0
